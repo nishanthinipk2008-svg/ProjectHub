@@ -211,7 +211,6 @@ def initialize_database():
             )
         ])
 
-    # Save everything
     connection.commit()
     connection.close()
 
@@ -453,12 +452,17 @@ def get_team():
 
 
 # =========================================
+# INITIALIZE DATABASE
+# =========================================
+
+initialize_database()
+
+
+# =========================================
 # START PROJECTHUB SERVER
 # =========================================
 
 if __name__ == "__main__":
-
-    initialize_database()
 
     print("====================================")
     print("        PROJECTHUB BACKEND")
@@ -470,7 +474,7 @@ if __name__ == "__main__":
     print("====================================")
 
     app.run(
-        host="127.0.0.1",
+        host="0.0.0.0",
         port=5000,
         debug=True
     )
