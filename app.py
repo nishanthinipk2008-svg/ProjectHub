@@ -10,11 +10,11 @@ app = Flask(__name__)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-# Frontend and database are in the same project folder
-FRONTEND_DIR = os.path.join(BASE_DIR, "frontend")
-DATABASE_DIR = os.path.join(BASE_DIR, "database")
+# All files are in the ProjectHub root folder
+FRONTEND_DIR = BASE_DIR
+DATABASE_DIR = BASE_DIR
 
-DATABASE = os.path.join(DATABASE_DIR, "projecthub.db")
+DATABASE = os.path.join(BASE_DIR, "projecthub.db")
 
 
 # =========================================
@@ -32,8 +32,6 @@ def get_db():
 # =========================================
 
 def initialize_database():
-
-    os.makedirs(DATABASE_DIR, exist_ok=True)
 
     connection = get_db()
 
